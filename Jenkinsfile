@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE_NAME = "kanav2003/myapp"               // Your Docker Hub repo
+        DOCKER_IMAGE_NAME = "kanav2k03/myapp"               // Your Docker Hub repo
         DOCKERHUB_CREDENTIALS_ID = "dockerhub-pass"        // Jenkins credential ID (username + PAT)
         KUBE_DEPLOYMENT_NAME = "myapp"                     // Kubernetes deployment name
         KUBE_NAMESPACE = "default"                         // Kubernetes namespace
