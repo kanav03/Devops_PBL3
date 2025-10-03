@@ -10,7 +10,6 @@ pipeline {
         stage('1. Checkout Code') {
             steps {
                 // This is the standard checkout step that reads from the job configuration.
-                // It's better than our temporary fix.
                 checkout scm
             }
         }
@@ -38,10 +37,10 @@ pipeline {
         stage('4. Deploy to Kubernetes') {
             steps {
                 echo 'Deploying to Kubernetes...'
-                // These commands now have the --server flag to fix the connection issue.
-                sh 'kubectl --server=https://host.docker.internal:6443 apply -f deployment.yaml'
-                sh 'kubectl --server=https://host.docker.internal:6443 apply -f service.yaml'
-                sh 'kubectl --server=https://host.docker.internal:6443 rollout restart deployment/myapp'
+                // Use the correct hostname that matches the TLS certificate
+                sh 'kubectl --server=https://kubernetes.docker.internal:6443 apply -f deployment.yaml'
+                sh 'kubectl --server=https://kubernetes.docker.internal:6443 apply -f service.yaml'
+                sh 'kubectl --server=https://kubernetes.docker.internal:6443 rollout restart deployment/myapp'
             }
         }
     }
