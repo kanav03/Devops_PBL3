@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: yourdockerhub/myapp:latest
+        image: kanav2003/myapp:latest
         ports:
         - containerPort: 5000
 ---
