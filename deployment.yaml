@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: kanav2003/myapp:latest
+        image: kanav2k03/myapp:latest
         ports:
         - containerPort: 5000
 ---
